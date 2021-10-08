@@ -33,14 +33,74 @@
   }
     </script>
 
-	Hello, World!
+	Music App (Under Construction)
 <script>
 function doit() {
 console.log("DOIT")
+const synth = new Tone.Synth().toDestination();
+
+//play a middle 'C' for the duration of an 8th note
+synth.triggerAttackRelease("C4", "8n");
 }
+
+//attach a click listener to a play button
+//function btnpress()
+//{
+
+//}
+
 </script>
 </br></br>
-<button onclick="doit">
+<!--
+<button >
+START
 </button>
+-->
+
+<button id="btn">
+  activate audiocontext
+</button>
+<button onclick="doit()">
+  play sound
+</button>
+
+
+
+<script>
+console.log("btnpress")
+//document.querySelector("btn").addEventListener('click')
+//document.querySelector('btn')?.addEventListener('click', async () => {
+//await Tone.start()
+console.log('audio is ready')
+//})
+
+const playButton = document.querySelector('button');
+const AudioContext = window.AudioContext || window.webkitAudioContext;
+const audioContext = new AudioContext();
+
+
+playButton.addEventListener('click', function() {
+console.log("PLAYBTN")
+
+
+    // check if context is in suspended state (autoplay policy)
+    if (audioContext.state === 'suspended') {
+        audioContext.resume();
+    }
+
+    // play or pause track depending on state
+    if (this.dataset.playing === 'false') {
+        audioElement.play();
+        this.dataset.playing = 'true';
+    } else if (this.dataset.playing === 'true') {
+        audioElement.pause();
+        this.dataset.playing = 'false';
+    }
+
+
+  }, false);
+
+
+ </script>
 
   </body>
