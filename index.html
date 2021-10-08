@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+  </head>
+  <body>
+<!--
+    <script src="Tone.js">
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.4.9/Tone.js">
+  //  import * as Tone from 'tone'
+// }, 3000);
+
+
+    if (Tone.context.state !== 'running') {
+         Tone.context.resume();
+     }
+      //create a synth and connect it to the main output (your speakers)
+      setTimeout(1000,doit)
+      function doit() {
+    //    if (Tone.context.state !== 'running') {
+    //   Tone.context.resume();
+    console.log("doit")
+   }
+      console.log("SYNTH")
+      const synth = new Tone.Synth().toDestination();
+
+      //play a middle 'C' for the duration of an 8th note
+      synth.triggerAttackRelease("C4", "8n");
+  }
+    </script>
+
+	Hello, World!
+<script>
+function doit() {
+console.log("DOIT")
+}
+</script>
+</br></br>
+<button onclick="doit">
+</button>
+
+  </body>
