@@ -128,30 +128,74 @@
      </br></br></br></br></br>
       Buttons Here:
       </br>
-      <button onclick=start_play()>
-      Play
+      <button onclick=timer_tick()>
+      ▶
       </button>
 
-      <div class="container">
-        <div class="row row-cols-2 row-cols-lg-3">
-          <div class="col">Column</div>
-          <div class="col">Column</div>
-          <div class="col">Column</div>
-          <div class="col">Column</div>
-          <div class="col">Column</div>
-          <div class="col">Column</div>
 
+      <div class="btn-group btn-matrix">
+        <button onclick=start_play(1) type="button" class="btn btn-default">Key 1</button>
+        <button onclick=start_play(2) type="button" class="btn btn-default">Key 2</button>
+        <button onclick=start_play(3) type="button" class="btn btn-default">Key 3</button>
+        <button onclick=start_play(4) type="button" class="btn btn-default">Key 4</button>
+        <button onclick=start_play(5) type="button" class="btn btn-default">Key 5</button>
+        <button onclick=start_play(6) type="button" class="btn btn-default">Key 6</button>
+        <button onclick=start_play(7) type="button" class="btn btn-default">Key 7</button>
+        <button onclick=start_play(8) type="button" class="btn btn-default">Key 8</button>
+        <button onclick=start_play(9) type="button" class="btn btn-default">Key 9</button>
+        <button onclick=start_play(10) type="button" class="btn btn-default">Key 10</button>
+        <button onclick=start_play(11) type="button" class="btn btn-default">Key 11</button>
+        <button onclick=start_play(12) type="button" class="btn btn-default">Key 12</button>
+        <button onclick=start_play(13) type="button" class="btn btn-default">Key 13</button>
+        <button onclick=start_play(14) type="button" class="btn btn-default">Key 14</button>
       </div>
 
 
   <script>
-  function start_play()
+var key_array = [1,2,3]
+var seconds
+var keyname = "C7"
+  function start_play(key)
   {
-    const synth = new Tone.Synth().toDestination();
 
+
+    console.log(key)
+    if (key == 1)
+    keyname = "C4"
+    if (key == 2)
+    keyname = "C5"
+    if (key > 2)
+    keyname = "C" + key
+    if (key > 6)
+    {
+    key -= 6
+    keyname = "B" + key
+    }
+    const synth = new Tone.Synth().toDestination();
     //play a middle 'C' for the duration of an 8th note
-    synth.triggerAttackRelease("C4", "8n");
+    synth.triggerAttackRelease(keyname, "8n");
   }
+  //setInterval()
+  function timer_tick()
+  {
+    //seconds++
+    setInterval(play_key,50)
+  }
+  function play_key()
+  {
+    var ar_num = 0
+    var z = 0
+    if (key_array != null)
+    {
+      for (z = 0; z < key_array.length; z++)
+      {
+        start_play(key_array[ar_num])
+        console.log("TICK " + key_array[ar_num])
+
+      }
+    }
+  }
+
   </script>
 
 
