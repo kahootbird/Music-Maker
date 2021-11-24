@@ -44,29 +44,15 @@
              synth.triggerAttackRelease("C4", "8n");
          }
            </script>
-
        <script>
        function doit() {
        console.log("DOIT")
        const synth = new Tone.Synth().toDestination();
-
-       //play a middle 'C' for the duration of an 8th note
        synth.triggerAttackRelease("C3", "16n");
        }
 
-       //attach a click listener to a play button
-       //function btnpress()
-       //{
-
-       //}
-
        </script>
        </br></br>
-       <!--
-       <button >
-       START
-       </button>
-       -->
 
        <button id="btn">
          activate audiocontext
@@ -74,8 +60,6 @@
        <button onclick="doit()">
          play sound
        </button>
-
-
 
        <script>
        console.log("btnpress")
@@ -202,9 +186,5 @@ var keyname = "C7"
      </div>
    </div>
  </div>
-
- <footer class="container-fluid">
-   <p>Footer Text</p>
- </footer>
 
   </body>
