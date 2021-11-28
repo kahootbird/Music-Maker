@@ -1,9 +1,50 @@
+import React, {useEffect, useState } from "react";
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import * as Tone from "tone";
 import Script from 'next/script'
 export default function Home() {
+  //useEffect filter to get audio to playing otherwise AudioBuffer error will occur
+  const [noise, setNoise] = useState(null);
+    const [playing, setPlaying] = useState(false);
+    const [autoFilter, setAutoFilter] = useState(null);
+
+  useEffect(() => {
+      // initialize the noise and start
+      const newNoise = new Tone.Noise("pink");
+      setNoise(newNoise);
+
+      // make an autofilter to shape the noise
+      setAutoFilter(
+        new Tone.AutoFilter({
+          baseFrequency: 200,
+          octaves: 8
+        }).toDestination()
+      );
+      return () => newNoise.stop();
+    }, []);
+
+    useEffect(() => {
+      if (noise) {
+        if (playing) {
+          // connect the noise
+          noise.connect(autoFilter);
+          // start the autofilter LFO
+          noise.start();
+        } else {
+          noise.stop();
+        }
+      }
+    }, [playing, autoFilter, noise]);
+
+
+
+    //const synth = new Tone.Synth().toDestination();
+  function playNote(note) {
+    synth.triggerAttackRelease(`${note}4`, "8n");
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -16,18 +57,17 @@ export default function Home() {
   src="/play_audio.js"
   strategy="beforeInteractive"
 />
-<script>
-function playSynth()
-{
-  console.log("OK")
-}
-</script>
+
       <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
-        <button id='button' onClick="this.playSynth" >click</button>
+
+
+        <button className="note" onClick={() => setPlaying(!playing)}>
+       {!playing ? "play" : "pause"}
+     </button>
 
         <p className={styles.description}>
           Get started by editing{' '}
