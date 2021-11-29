@@ -11,9 +11,15 @@ export default function Home() {
     const [autoFilter, setAutoFilter] = useState(null);
 
   useEffect(() => {
+
       // initialize the noise and start
       const newNoise = new Tone.Noise("pink");
-      setNoise(newNoise);
+
+
+
+
+
+    /*  setNoise(newNoise);
 
       // make an autofilter to shape the noise
       setAutoFilter(
@@ -22,10 +28,14 @@ export default function Home() {
           octaves: 8
         }).toDestination()
       );
+*/
       return () => newNoise.stop();
     }, []);
 
     useEffect(() => {
+      const synth = new Tone.Synth().toDestination();
+      synth.triggerAttackRelease(`${"C"}4`, "8n");
+      console.log("played")
       if (noise) {
         if (playing) {
           // connect the noise
