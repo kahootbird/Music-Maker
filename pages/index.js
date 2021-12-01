@@ -4,6 +4,9 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import * as Tone from "tone";
 import Script from 'next/script'
+
+import Component1 from '../comps/Component1'
+
 export default function Home() {
   //useEffect filter to get audio to playing otherwise AudioBuffer error will occur
   const [noise, setNoise] = useState(null);
@@ -11,14 +14,7 @@ export default function Home() {
     const [autoFilter, setAutoFilter] = useState(null);
 
   useEffect(() => {
-
-      // initialize the noise and start
-      const newNoise = new Tone.Noise("pink");
-
-
-
-
-
+      //const newNoise = new Tone.Noise("pink");
     /*  setNoise(newNoise);
 
       // make an autofilter to shape the noise
@@ -36,24 +32,13 @@ export default function Home() {
       const synth = new Tone.Synth().toDestination();
       synth.triggerAttackRelease(`${"C"}4`, "8n");
       console.log("played")
-      if (noise) {
-        if (playing) {
-          // connect the noise
-          noise.connect(autoFilter);
-          // start the autofilter LFO
-          noise.start();
-        } else {
-          noise.stop();
-        }
-      }
+
     }, [playing, autoFilter, noise]);
 
 
 
     //const synth = new Tone.Synth().toDestination();
-  function playNote(note) {
-    synth.triggerAttackRelease(`${note}4`, "8n");
-  }
+
 
   return (
     <div className={styles.container}>
@@ -73,26 +58,19 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
-
+<Component1 title='Hello From Title Prop' />
 
         <button className="note" onClick={() => setPlaying(!playing)}>
-       {!playing ? "play" : "pause"}
+       {"play"}
      </button>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+     <button className="note" onClick={() => setPlaying(!playing)}>
+    {"play"}
+  </button>
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
             <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
           </a>
 
           <a
