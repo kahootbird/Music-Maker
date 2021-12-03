@@ -1,15 +1,12 @@
-//import React from 'react'
+import React from 'react'
 
-const Component1 = (props) => {
+const Component1 = (handleAdd) => {
+
   return (
   <component1>
-    <button> HELLO {props.title}</button>
+    <button onClick={handleAdd}>Add </button>
   </component1>
   )
 }
-/*
-Component1.defaultProps = {
-  title: 'Todo List Application'
-}
-*/
+
 export default Component1
