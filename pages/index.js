@@ -8,6 +8,17 @@ import Script from 'next/script'
 import Component1 from '../comps/Component1'
 
 export default function Home() {
+  const [count, setCount] = useState(0)
+  const handleAdd = () =>
+  {
+    //this.callmemaybe()
+    console.log("FUNCTION CALLED")
+    //setCount(count+1)
+  }
+function callmemaybe()
+{
+  console.log("CALL ME CALLED")
+}
   //useEffect filter to get audio to playing otherwise AudioBuffer error will occur
   const [noise, setNoise] = useState(null);
     const [playing, setPlaying] = useState(false);
@@ -58,7 +69,8 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
-<Component1 title='Hello From Title Prop' />
+<Component1 handleAdd={handleAdd} />
+{count}
 
         <button className="note" onClick={() => setPlaying(!playing)}>
        {"play"}
