@@ -23,30 +23,27 @@ function callmemaybe()
   const [noise, setNoise] = useState(null);
     const [playing, setPlaying] = useState(false);
     const [autoFilter, setAutoFilter] = useState(null);
+      const [note, setNote] = useState(false)
 
-  useEffect(() => {
-      //const newNoise = new Tone.Noise("pink");
-    /*  setNoise(newNoise);
-
-      // make an autofilter to shape the noise
-      setAutoFilter(
-        new Tone.AutoFilter({
-          baseFrequency: 200,
-          octaves: 8
-        }).toDestination()
-      );
-*/
-      return () => newNoise.stop();
-    }, []);
 
     useEffect(() => {
+
       const synth = new Tone.Synth().toDestination();
       synth.triggerAttackRelease(`${"C"}4`, "8n");
-      console.log("played")
+      //console.log("played")
+      //setCount(1)
+      //console.log(count + "")
+      //console.log()
 
-    }, [playing, autoFilter, noise]);
+    }, [playing,note]);
 
-
+function notez(key)
+{
+  setNote(key)
+  console.log(note)
+  //console.log(key)
+  //setPlaying(!playing)
+}
 
     //const synth = new Tone.Synth().toDestination();
 
@@ -72,10 +69,10 @@ function callmemaybe()
 <Component1 handleAdd={handleAdd} />
 {count}
 
-        <button className="note" onClick={() => setPlaying(!playing)}>
+        <button className="note" onClick={() => notez(1)}>
        {"play"}
      </button>
-     <button className="note" onClick={() => setPlaying(!playing)}>
+     <button className="note" onClick={() => notez(2)}>
     {"play"}
   </button>
 
