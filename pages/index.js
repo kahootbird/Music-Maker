@@ -5,6 +5,8 @@ import styles from '../styles/Home.module.css'
 import * as Tone from "tone";
 import Script from 'next/script'
 
+//import {View} from "react-native"
+
 import Component1 from '../comps/Component1'
 
 export default function Home() {
@@ -27,23 +29,23 @@ function callmemaybe()
 
 
     useEffect(() => {
-
       const synth = new Tone.Synth().toDestination();
       synth.triggerAttackRelease(`${"C"}4`, "8n");
-      //console.log("played")
-      //setCount(1)
-      //console.log(count + "")
-      //console.log()
+      console.log("played")
 
     }, [playing,note]);
 
 function notez(key)
 {
-  setNote(key)
-  console.log(note)
+  //key=key+1
+  //setNote(key)
+  //console.log(note)
+  const synth = new Tone.Synth().toDestination();
+  synth.triggerAttackRelease(key, "8n");
   //console.log(key)
   //setPlaying(!playing)
 }
+
 
     //const synth = new Tone.Synth().toDestination();
 
@@ -69,13 +71,12 @@ function notez(key)
 <Component1 handleAdd={handleAdd} />
 {count}
 
-        <button className="note" onClick={() => notez(1)}>
-       {"play"}
-     </button>
-     <button className="note" onClick={() => notez(2)}>
-    {"play"}
+  <button className="note" onClick={() => notez("C4")}>
+  {"C4"}
   </button>
-
+  <button className="note" onClick={() => notez("C3")}>
+  {"C3"}
+  </button>
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
