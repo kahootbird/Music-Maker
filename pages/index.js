@@ -5,10 +5,9 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import * as Tone from "tone";
 import Script from 'next/script'
-
-
-
 import Component1 from '../comps/Component1'
+import Piano from '../comps/Piano'
+
 
 export default function Home() {
   const [count, setCount] = useState(0)
@@ -90,24 +89,24 @@ function notez(key)
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
-
+< Piano />
 <Component1 handleAdd={handleAdd} />
 {count}
 
+
+
 <div class="container">
   <div class="buttons">
+
+
   <button className="note" style={buttonstyle} onClick={() => notez("A4")}>
   {"A"}
   </button>
   <button className="note" style={buttonstyle} onClick={() => notez("B4")}>
   {"B"}
   </button>
-  <button className="note" style={buttonstyle} onClick={() => notez("C4")}>
-  {"C"}
-  </button>
-  <button className="note" style={buttonstyle} onClick={() => notez("D4")}>
-  {"D"}
-  </button>
+
+
 
   </div>
 </div>
