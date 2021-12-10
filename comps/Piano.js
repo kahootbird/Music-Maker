@@ -1,12 +1,31 @@
 import React from 'react'
 import styles from '../styles/Home.module.css'
+import Key from '../comps/Key'
+
 const Piano = (props) => {
   return (
   <piano>
-  <div class="container">
-    <div className={styles.card}>
+  <div className={styles.piano}>
       PIANO
-    </div>
+
+  < Key />
+  < Key flat={true} />
+  < Key />
+  < Key flat={true} />
+  < Key />
+  < Key />
+  < Key flat={true} />
+  < Key />
+  < Key flat={true} />
+  < Key />
+  < Key flat={true} />
+  < Key />
+  < Key />
+  < Key flat={true} />
+  < Key />
+  < Key flat={true} />
+  < Key />
+
   </div>
   </piano>
   )
