@@ -2,6 +2,12 @@ import React from 'react'
 import styles from '../styles/Home.module.css'
 const Key = (props) => {
 
+function click_btn()
+{
+  console.log("CLICKED")
+  console.log(props.keynote)
+}
+
 var noteIsFlat = 0
 if (props.flat == true)
 noteIsFlat = 1
@@ -10,9 +16,9 @@ if (noteIsFlat == 0)
 {
   var info = (
     <piano>
-    <div class="container">
+    <div class="container" onClick={click_btn}>
       <div className={styles.key}>
-        KEY
+
       </div>
     </div>
     </piano>
@@ -23,8 +29,8 @@ else
   var info = (
     <piano>
     <div class="container">
-      <div className={styles.keyflat}>
-        KEY
+      <div className={styles.keyflat} onClick={click_btn}>
+
       </div>
     </div>
     </piano>
