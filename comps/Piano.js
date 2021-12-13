@@ -3,12 +3,19 @@ import styles from '../styles/Home.module.css'
 import Key from '../comps/Key'
 
 const Piano = (props) => {
+  const call_playsound = () =>
+  {
+    console.log("FUNCTION CALLED")
+    props.piano_key_click()
+  }
+
+
   return (
   <piano>
   <div className={styles.piano}>
-      PIANO
 
-  < Key keynote="1"/>
+
+  < Key keynote="1" call_playsound={call_playsound} />
   < Key keynote="2" flat={true}/>
   < Key keynote="3"/>
   < Key keynote="4" flat={true} />

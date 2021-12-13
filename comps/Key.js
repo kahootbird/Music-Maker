@@ -6,7 +6,15 @@ function click_btn()
 {
   console.log("CLICKED")
   console.log(props.keynote)
+  props.call_playsound()
 }
+
+var cmdDown = false;
+
+
+
+
+
 
 var noteIsFlat = 0
 if (props.flat == true)

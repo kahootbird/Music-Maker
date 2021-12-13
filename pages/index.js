@@ -49,7 +49,46 @@ function notez(key)
   //console.log(key)
   //setPlaying(!playing)
 }
+function piano_key_click()
+{
+  console.log("PIANO KEY CLICK")
+  notez("A4")
+}
 
+const aPress = useKeyPress("a");
+const bPress = useKeyPress("b");
+const cPress = useKeyPress("c");
+const dPress = useKeyPress("d");
+
+function useKeyPress(targetKey) {
+  // State for keeping track of whether key is pressed
+  const [keyPressed, setKeyPressed] = useState(false);
+  // If pressed key is our target key then set to true
+  function downHandler({ key }) {
+    if (key === targetKey) {
+      setKeyPressed(true);
+    }
+  }
+  // If released key is our target key then set to false
+  const upHandler = ({ key }) => {
+    if (key === targetKey) {
+      setKeyPressed(false);
+      //console.log("keypress " + key)
+      notez(key + "4")
+    }
+  };
+  // Add event listeners
+  useEffect(() => {
+    window.addEventListener("keydown", downHandler);
+    window.addEventListener("keyup", upHandler);
+    // Remove event listeners on cleanup
+    return () => {
+      window.removeEventListener("keydown", downHandler);
+      window.removeEventListener("keyup", upHandler);
+    };
+  }, []); // Empty array ensures that effect is only run on mount and unmount
+  return keyPressed;
+}
 
     //const synth = new Tone.Synth().toDestination();
     /*.button {
@@ -89,7 +128,7 @@ function notez(key)
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
-< Piano />
+< Piano piano_key_click={piano_key_click}/>
 <Component1 handleAdd={handleAdd} />
 {count}
 
