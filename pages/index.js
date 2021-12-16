@@ -49,10 +49,13 @@ function notez(key)
   //console.log(key)
   //setPlaying(!playing)
 }
-function piano_key_click()
+function piano_key_click(keynum)
 {
-  console.log("PIANO KEY CLICK")
-  notez("A4")
+  console.log("PIANO KEY CLICK " + keynum)
+
+
+  notez(keynum)
+  //notez(keynum)
 }
 
 const aPress = useKeyPress("a");

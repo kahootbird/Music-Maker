@@ -3,10 +3,10 @@ import styles from '../styles/Home.module.css'
 import Key from '../comps/Key'
 
 const Piano = (props) => {
-  const call_playsound = () =>
+  const call_playsound = (keynum) =>
   {
-    console.log("FUNCTION CALLED")
-    props.piano_key_click()
+    console.log("FUNCTION CALLED" + keynum)
+    props.piano_key_click(keynum)
   }
 
 
@@ -15,23 +15,30 @@ const Piano = (props) => {
   <div className={styles.piano}>
 
 
-  < Key keynote="1" call_playsound={call_playsound} />
-  < Key keynote="2" flat={true}/>
-  < Key keynote="3"/>
-  < Key keynote="4" flat={true} />
-  < Key keynote="5"/>
-  < Key keynote="6"/>
-  < Key keynote="7" flat={true} />
-  < Key keynote="8" />
-  < Key keynote="9" flat={true} />
-  < Key keynote="10" />
-  < Key keynote="11" flat={true} />
-  < Key keynote="12" />
-  < Key keynote="13" />
-  < Key keynote="14" flat={true} />
-  < Key keynote="15" />
-  < Key keynote="16" flat={true} />
-  < Key keynote="17" />
+  < Key keynote="c3" call_playsound={call_playsound} />
+  < Key keynote="c#3" flat={true} call_playsound={call_playsound} />
+  < Key keynote="d3" call_playsound={call_playsound} />
+  < Key keynote="d#3" flat={true} call_playsound={call_playsound} />
+  < Key keynote="e3" call_playsound={call_playsound} />
+  < Key keynote="f3" call_playsound={call_playsound} />
+  < Key keynote="f#3" flat={true} call_playsound={call_playsound} />
+  < Key keynote="g3" call_playsound={call_playsound} />
+  < Key keynote="g#3" flat={true} call_playsound={call_playsound} />
+  < Key keynote="a3" call_playsound={call_playsound} />
+  < Key keynote="a#3" flat={true} call_playsound={call_playsound} />
+  < Key keynote="b3" call_playsound={call_playsound} />
+  < Key keynote="c4" call_playsound={call_playsound} />
+  < Key keynote="c#4" flat={true} call_playsound={call_playsound} />
+  < Key keynote="d4" call_playsound={call_playsound} />
+  < Key keynote="d#4" flat={true} call_playsound={call_playsound} />
+  < Key keynote="e4" call_playsound={call_playsound} />
+  < Key keynote="f4" call_playsound={call_playsound} />
+  < Key keynote="f#4" flat={true} call_playsound={call_playsound} />
+  < Key keynote="g4" call_playsound={call_playsound} />
+  < Key keynote="g#4" flat={true} call_playsound={call_playsound} />
+  < Key keynote="a4" call_playsound={call_playsound} />
+  < Key keynote="a#4" flat={true} call_playsound={call_playsound} />
+  < Key keynote="b4" call_playsound={call_playsound} />
 
   </div>
   </piano>
