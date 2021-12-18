@@ -1,14 +1,22 @@
-import React from 'react'
+import React, {useEffect, useState } from "react";
+
 import styles from '../styles/Home.module.css'
+
 const Key = (props) => {
 
+const [keyvalue, setKeyValue] = useState(0)
+console.log("VALUE" + keyvalue)
 function click_btn()
 {
+  setKeyValue(1)
   //console.log("CLICKED")
   //console.log(props.keynote)
-  console.log(props.keynote)
   props.call_playsound(props.keynote)
+
+
+  //console.log(this.key())
 }
+
 var cmdDown = false;
 
 var noteIsFlat = 0
@@ -17,6 +25,7 @@ noteIsFlat = 1
 var info
 if (noteIsFlat == 0)
 {
+  if (keyvalue == 0)
   var info = (
     <piano>
     <div class="container" onClick={click_btn}>
@@ -26,6 +35,17 @@ if (noteIsFlat == 0)
     </div>
     </piano>
   )
+  else {
+    var info = (
+      <piano>
+      <div class="container" onClick={click_btn}>
+        <div className={styles.keypressed}>
+        {props.keynote}
+        </div>
+      </div>
+      </piano>
+    )
+  }
 }
 else
 {
