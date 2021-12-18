@@ -112,7 +112,15 @@ function useKeyPress(targetKey) {
      padding: "10px",
      fontFamily: "Arial"
    };
-
+//<Component1 handleAdd={handleAdd} />
+/*
+  <button className="note" style={buttonstyle} onClick={() => notez("A4")}>
+  {"A"}
+  </button>
+  <button className="note" style={buttonstyle} onClick={() => notez("B4")}>
+  {"B"}
+  </button>
+*/
   return (
     <div className={styles.container}>
 
@@ -132,21 +140,19 @@ function useKeyPress(targetKey) {
           Welcome to Piano App!
         </h1>
 < Piano piano_key_click={piano_key_click}/>
-<Component1 handleAdd={handleAdd} />
-{count}
+
 
 
 
 <div class="container">
+<br />
+<br />
+<br />
+<h1 className={styles.title}>
+  Created by Ronnie Goodrich as part of #100DaysOfCode Challenge
+</h1>
   <div class="buttons">
 
-
-  <button className="note" style={buttonstyle} onClick={() => notez("A4")}>
-  {"A"}
-  </button>
-  <button className="note" style={buttonstyle} onClick={() => notez("B4")}>
-  {"B"}
-  </button>
 
 
 

@@ -5,18 +5,22 @@ import styles from '../styles/Home.module.css'
 const Key = (props) => {
 
 const [keyvalue, setKeyValue] = useState(0)
-console.log("VALUE" + keyvalue)
+
 function click_btn()
 {
   setKeyValue(1)
   //console.log("CLICKED")
   //console.log(props.keynote)
   props.call_playsound(props.keynote)
-
+  setTimeout(fix_keypress,200)
 
   //console.log(this.key())
 }
-
+function fix_keypress()
+{
+  //console.log("fix keypress")
+  setKeyValue(0)
+}
 var cmdDown = false;
 
 var noteIsFlat = 0
@@ -26,11 +30,13 @@ var info
 if (noteIsFlat == 0)
 {
   if (keyvalue == 0)
+
+  //      {props.keynote}
   var info = (
     <piano>
     <div class="container" onClick={click_btn}>
       <div className={styles.key}>
-      {props.keynote}
+
       </div>
     </div>
     </piano>
@@ -40,7 +46,7 @@ if (noteIsFlat == 0)
       <piano>
       <div class="container" onClick={click_btn}>
         <div className={styles.keypressed}>
-        {props.keynote}
+
         </div>
       </div>
       </piano>
@@ -53,7 +59,7 @@ else
     <piano>
     <div class="container">
       <div className={styles.keyflat} onClick={click_btn}>
-      {props.keynote}
+
       </div>
     </div>
     </piano>

@@ -13,8 +13,6 @@ const Piano = (props) => {
   return (
   <piano>
   <div className={styles.piano}>
-
-
   < Key keynote="c3" call_playsound={call_playsound} />
   < Key keynote="c#3" flat={true} call_playsound={call_playsound} />
   < Key keynote="d3" call_playsound={call_playsound} />
