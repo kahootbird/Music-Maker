@@ -9,7 +9,10 @@ const Piano = (props) => {
     props.piano_key_click(keynum)
   }
 
-
+/*
+Define the keys with call_playosund.
+Called as function above then passed to main file (index.js)
+*/
   return (
   <piano>
   <div className={styles.piano}>
